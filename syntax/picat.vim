@@ -4,7 +4,7 @@
 " Filenames:   *.pi
 " Last Change: 2020-08-05
 
-syn keyword picatConditional if then elseif else end in
+syn keyword picatConditional if then elseif else end in foreach while do
 syn keyword picatKeyword import throw table index
 syn match picatComment "%.*"
 
