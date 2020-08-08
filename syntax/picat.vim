@@ -9,7 +9,7 @@ syn keyword picatKeyword import throw table index
 syn match picatComment "%.*"
 
 syn match picatNumber   "\v<\d+>"
-syn match picatNumber   "\v<\d+.\d+>"
+syn match picatNumber   "\v<\d+\.\d+>"
 
 "TODO:
 "\n in strings
