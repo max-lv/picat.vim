@@ -11,11 +11,10 @@ syn match picatComment "%.*"
 syn match picatNumber   "\v<\d+>"
 syn match picatNumber   "\v<\d+\.\d+>"
 
-"TODO:
-"\n in strings
-"%d in writef
-"look up how C syntax handles printf?
-syn region picatString start=/"/ skip=/\\"/ end=/"/ oneline
+syn match picatEscape display contained /\\\([nrt0\\'"]\)/
+syn match picatFormat display contained /%\([d]\)/
+
+syn region picatString start=/"/ skip=/\\"/ end=/"/ oneline contains=picatEscape,picatFormat
 
 "TODO: does picat has ! operator ?
 syn match picatOperator "\V\(+\|-\|/\|*\|=\|^\|&&\|||\|not\|!\|>\|<\)"
@@ -37,6 +36,8 @@ hi def link picatVariable Identifier
 hi def link picatFunction Function
 hi def link picatDelimiter Delimiter
 hi def link picatParens Type
+hi def link picatEscape Special
+hi def link picatFormat Type
 "hi def link picatComma Comment
 
 let b:current_syntax = "picat"
